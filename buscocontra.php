@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 $Email=$_GET["Email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
-$query ="select * from Usuario WHERE Email='$Email'";
+$query ="select Contrasena from Usuario WHERE Email='$Email'";
 $result = mysqli_query($con, $query);
 $objetos = array();
 while($row = mysqli_fetch_array($result)) 
