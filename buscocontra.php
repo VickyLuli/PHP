@@ -21,13 +21,11 @@ $result = mysqli_query($con, $query) or die ('Error al ejecutar: '.mysql_error()
 echo mysql_fetch_assoc($result);
 
 /* create one master array of the records */
-	$posts = array();
-	if(mysql_num_rows($result)) {
-		while($post = mysql_fetch_assoc($result)) {			
-			echo 'hola'.$post["Contrasena"];
-			$posts[] = array('usuario'=>$post["Contrasena"]);
-		}
-	}
+	$posts = array();	
+	while($post = mysql_fetch_assoc($result)) {			
+		echo 'hola'.$post["Contrasena"];
+		$posts[] = array('usuario'=>$post["Contrasena"]);
+	}	
 
 header('Content-type: application/json');
 mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
