@@ -1,13 +1,15 @@
 <?php
-$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb');
+$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb') or die('Error de conexión');
 
 /* verificar conexión */
+/*
 if (mysqli_connect_errno()) {
     printf("Error de conexión: %s\n", mysqli_connect_error());
     die();
 }
+*/
 
-//mysql_select_db('noctidb',$con) or die('Cannot select the DB');
+mysql_select_db('noctidb',$con) or die('Cannot select the DB');
 
 
 $Email=$_GET["email"];
