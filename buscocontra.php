@@ -23,8 +23,9 @@ echo mysql_fetch_assoc($result);
 /* create one master array of the records */
 	$posts = array();
 	if(mysql_num_rows($result)) {
-		while($post = mysql_fetch_assoc($result)) {
-			$posts[] = array('usuario'=>$post);
+		while($post = mysql_fetch_assoc($result)) {			
+			echo $post["Contrasena"];
+			$posts[] = array('usuario'=>$post["Contrasena"]);
 		}
 	}
 
