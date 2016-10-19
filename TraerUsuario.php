@@ -1,11 +1,11 @@
 <?php
 $con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb');
 
-/* verificar conexión */
 if (mysqli_connect_errno()) {
     printf("Error de conexión: %s\n", mysqli_connect_error());
     exit();
-}		
+}
+
 $Email=$_GET["Email"];
 $query ="select * from Usuario WHERE Email='$Email'";
 $result = mysqli_query($con, $query);
