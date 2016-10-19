@@ -6,7 +6,7 @@ if (mysqli_connect_errno()) {
     printf("Error de conexión: %s\n", mysqli_connect_error());
     exit();
 }		
-$Email=$_GET["Email"];
+$Email=$_GET["email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
 //$query ="select Contrasena from Usuario WHERE Email='$Email'";
