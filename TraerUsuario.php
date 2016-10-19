@@ -8,7 +8,7 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$Email=$_GET["Email"];
+	$email=$_GET["email"];
 	$query ="SELECT * FROM Usuario WHERE Email='$email'";
 	$query_exc=mysqli_query($con, $query);
 	$objetos = array();
