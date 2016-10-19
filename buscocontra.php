@@ -13,6 +13,7 @@ echo $string;
 $evento=json_decode($string,true);
 $query ="select Contrasena from Usuario WHERE Email='$Email';";
 echo $query;
+echo $con;
 $result = mysqli_query($con, $query);
 echo $result;
 $close = mysqli_close($con) 
