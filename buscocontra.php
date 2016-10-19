@@ -11,7 +11,7 @@ $Email=$_GET["email"];
 $string = file_get_contents('php://input');
 echo $string;
 $evento=json_decode($string,true);
-$query ="select Contrasena from Usuario WHERE Email='$Email'";
+$query ="select Contrasena from Usuario WHERE Email='$Email';";
 echo $query;
 $result = mysqli_query($con, $query);
 echo $result;
