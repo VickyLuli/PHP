@@ -21,17 +21,14 @@ else
 	$email=$_GET["email"];
 	$query = "SELECT Contrasena FROM Usuario WHERE Email='$email'";
 	$query_exc=mysqli_query($con, $query);
-	$usuarios = Array();
+	$contrasena;
 		while($row=mysqli_fetch_assoc($query_exc)){
-			$usuario = Array(
-			"Contrasena" => $row["Contrasena"]
-			);
-			array_push($usuarios, $usuario);
+			$contrasena = $row["Contrasena"];
 		}
 	
 	
 	header("Content-Type: application/json");
-	$json = json_encode($usuarios, JSON_PRETTY_PRINT);
+	$json = json_encode($contrasena, JSON_PRETTY_PRINT);
 	echo($json);
 }
 mysqli_close($con);
