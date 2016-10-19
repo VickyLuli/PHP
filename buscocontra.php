@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751');
+$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb');
 
 /* verificar conexión */
 if (mysqli_connect_errno()) {
@@ -7,21 +7,23 @@ if (mysqli_connect_errno()) {
     die();
 }
 
-mysql_select_db('noctidb',$con) or die('Cannot select the DB');
+//mysql_select_db('noctidb',$con) or die('Cannot select the DB');
 
 
-echo "antes del get";
 $Email=$_GET["email"];
 $string = file_get_contents('php://input');
-echo $string;
 $evento=json_decode($string,true);
 $query ="select Contrasena from Usuario WHERE Email='$Email';";
-echo $query;
-echo $con;
 $result = mysqli_query($con, $query);
-echo $result;
-$close = mysqli_close($con) 
-or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
-header("Content-Type: application/json");
-$json_string = json_encode($result,JSON_UNESCAPED_UNICODE);
-echo $json_string;
+mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
+
+/* create one master array of the records */
+	$posts = array();
+	if(mysql_num_rows($result)) {
+		while($post = mysql_fetch_assoc($result)) {
+			$posts[] = array('usuario'=>$post);
+		}
+	}
+
+    header('Content-type: application/json');
+    echo json_encode(array('posts'=>$posts),JSON_UNESCAPED_UNICODE);
