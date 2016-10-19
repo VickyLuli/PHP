@@ -12,12 +12,13 @@ if (mysqli_connect_errno()) {
 //mysql_select_db('noctidb',$con) or die('Cannot select the DB');
 
 
-$Email=$_GET["email"];
+$email=$_GET["email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
-$query ="use noctidb;select Contrasena from Usuario WHERE Email='$Email';";
+$query ="use noctidb;select Contrasena from Usuario WHERE Email='$email';";
 echo $query;
 $result = mysqli_query($con, $query);
+
 mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
 
 /* create one master array of the records */
