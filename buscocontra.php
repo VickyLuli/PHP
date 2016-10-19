@@ -10,7 +10,7 @@ $Email=$_GET["Email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
 //$query ="select Contrasena from Usuario WHERE Email='$Email'";
-$query ="select Contrasena from Usuario";
+$query ="select Contrasena from Usuario;";
 $result = mysqli_query($con, $query);
 $close = mysqli_close($con) 
 or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
