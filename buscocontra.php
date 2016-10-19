@@ -18,8 +18,7 @@ $evento=json_decode($string,true);
 $query ="select Contrasena from Usuario where Email='$email';";
 echo $query;
 $result = mysqli_query($con, $query) or die ('Error al ejecutar: '.mysql_error());
-
-
+echo $result;
 
 /* create one master array of the records */
 	$posts = array();
@@ -29,6 +28,6 @@ $result = mysqli_query($con, $query) or die ('Error al ejecutar: '.mysql_error()
 		}
 	}
 
-    header('Content-type: application/json');
+header('Content-type: application/json');
 mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
 echo json_encode(array('posts'=>$posts),JSON_UNESCAPED_UNICODE);
