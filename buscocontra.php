@@ -15,9 +15,9 @@ if (mysqli_connect_errno()) {
 $email=$_GET["email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
-$query ="select Contrasena from Usuario;";
+$query ="select Contrasena from Usuario where Email='$email';";
 echo $query;
-$result = mysqli_query($con, $query);
+$result = mysqli_query($con, $query) or die ('Error al ejecutar: '.mysql_error());
 
 mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
 
