@@ -12,21 +12,27 @@ if (mysqli_connect_errno()) {
 //mysql_select_db('noctidb',$con) or die('Cannot select the DB');
 
 
-$email=$_GET["email"];
-$string = file_get_contents('php://input');
-$evento=json_decode($string,true);
-$query ="select Contrasena from Usuario where Email='$email';";
-echo $query;
-$result = mysqli_query($con, $query) or die ('Error al ejecutar: '.mysql_error());
-echo mysql_fetch_assoc($result);
-
-/* create one master array of the records */
-	$posts = array();	
-	while($post = mysql_fetch_assoc($result)) {			
-		echo 'hola'.$post["Contrasena"];
-		$posts[] = array('usuario'=>$post["Contrasena"]);
-	}	
-
-header('Content-type: application/json');
-mysqli_close($con) or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
-echo json_encode(array('posts'=>$posts),JSON_UNESCAPED_UNICODE);
+if(mysqli_connect_errno())
+{
+	echo "Failed to connect to MySQL: " .mysqli_connect_error();
+}
+else
+{	
+	$email=$_GET["email"];
+	$query = "SELECT Contrasena FROM Usuario WHERE Email='$email'";
+	$query_exc=mysqli_query($con, $query);
+	$usuarios = Array();
+		while($row=mysqli_fetch_assoc($query_exc)){
+			$usuario = Array(
+			"Contrasena" => $row["Contrasena"]
+			);
+			array_push($usuarios, $usuario);
+		}
+	
+	
+	header("Content-Type: application/json");
+	$json = json_encode($usuarios, JSON_PRETTY_PRINT);
+	echo($json);
+}
+mysqli_close($con);
+?>
