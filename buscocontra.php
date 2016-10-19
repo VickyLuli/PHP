@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751') or die('Error de conexión');
+$con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb') or die('Error de conexión');
 
 /* verificar conexión */
 /*
@@ -15,7 +15,7 @@ if (mysqli_connect_errno()) {
 $email=$_GET["email"];
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
-$query ="use noctidb;select Contrasena from Usuario WHERE Email='$email';";
+$query ="select Contrasena from Usuario;";
 echo $query;
 $result = mysqli_query($con, $query);
 
