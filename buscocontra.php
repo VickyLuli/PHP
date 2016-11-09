@@ -18,8 +18,8 @@ else
 	
 	header("Content-Type: application/json");
 	$json = json_encode($contrasena, JSON_PRETTY_PRINT);
-	$jArr = (array) json_decode($json);
-echo $jArr;
+	$json =  json_decode($json);
+echo $json;
 
 }
 mysqli_close($con);
