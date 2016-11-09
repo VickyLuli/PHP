@@ -10,7 +10,7 @@ else
 	$email=$_GET["email"];
 	$query = "SELECT Contrasena FROM Usuario WHERE Email='$email'";
 	$query_exc=mysqli_query($con, $query);
-	$contrasena;
+	$usuarios = Array();
 		while($row=mysqli_fetch_assoc($query_exc)){
 			$usuario = Array(
 			"Contrasena" => $row["Contrasena"]
