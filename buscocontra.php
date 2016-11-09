@@ -20,7 +20,7 @@ else
 	
 	
 	header("Content-Type: application/json");
-	$json = json_encode($usuarios, JSON_PRETTY_PRINT);
+	$json = json_encode($usuario, JSON_PRETTY_PRINT);
 	echo($json);
 
 }
