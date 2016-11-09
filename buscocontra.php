@@ -18,7 +18,7 @@ else
 	
 	header("Content-Type: application/json");
 	$json = json_encode($contrasena, JSON_PRETTY_PRINT);
-	$jArr = json_decode($json, true);
+	$jArr = (array) json_decode($json);
 echo $jArr;
 
 }
