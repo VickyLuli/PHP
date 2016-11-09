@@ -18,7 +18,9 @@ else
 	
 	header("Content-Type: application/json");
 	$json = json_encode($contrasena, JSON_PRETTY_PRINT);
-	echo($json);
+	$jArr = json_decode($json, true);
+echo $jArr;
+
 }
 mysqli_close($con);
 ?>
