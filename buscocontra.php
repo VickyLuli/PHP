@@ -12,14 +12,16 @@ else
 	$query_exc=mysqli_query($con, $query);
 	$contrasena;
 		while($row=mysqli_fetch_assoc($query_exc)){
-			$contrasena = $row["Contrasena"];
+			$usuario = Array(
+			"Contrasena" => $row["Contrasena"]
+			);
+			array_push($usuarios, $usuario);
 		}
 	
 	
 	header("Content-Type: application/json");
-	$json = json_encode($contrasena, JSON_PRETTY_PRINT);
-	
-echo $json;
+	$json = json_encode($usuarios, JSON_PRETTY_PRINT);
+	echo($json);
 
 }
 mysqli_close($con);
