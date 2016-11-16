@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
-$query = "INSERT INTO Usuario (null, Email, Contrasena, Nombre, Apellido, FechadeNac, Sexo, Direccion, Telefono, DNI) VALUES (null, ?, ?, ?, ?,?,?,?,?,?)";
+$query = "INSERT INTO Usuario (IdUsuario, Email, Contrasena, Nombre, Apellido, FechaNac, Sexo, Direccion, Telefono, DNI) VALUES (null, ?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
 		'iissi',
