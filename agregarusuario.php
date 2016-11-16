@@ -1,8 +1,4 @@
 <?php
-
-echo "hola mundo";
-
-
 $con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb');
 /* verificar conexión */
 if (mysqli_connect_errno()) {
@@ -11,6 +7,7 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents('php://input');
 $evento=json_decode($string,true);
+var_dump($evento);
 $query = "INSERT INTO Usuario (IdUsuario, Email, Contrasena, Nombre, Apellido, FechaNac, Sexo, Direccion, Telefono, DNI) VALUES (null, ?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
