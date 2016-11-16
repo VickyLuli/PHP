@@ -1,4 +1,8 @@
 <?php
+
+echo "hola mundo";
+
+
 $con=mysqli_connect('us-cdbr-azure-east-c.cloudapp.net','ba4f301b5a2fe0','77e42751','noctidb');
 /* verificar conexión */
 if (mysqli_connect_errno()) {
