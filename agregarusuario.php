@@ -9,16 +9,16 @@ $string = file_get_contents('php://input');
 var_dump($string);
 $evento=json_decode($string,true);
 var_dump($evento);
-$query = "INSERT INTO Usuario (IdUsuario, Email, Contrasena, Nombre, Apellido, FechaNac, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?, ?,?,?,?,?,?)";
+$query = "INSERT INTO Usuario (idUsuario, Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
 		'iissi',
-		$evento["IdUsuario"],
+		$evento["idUsuario"],
 		$evento["Email"],
 		$evento["Contrasena"],
 		$evento["Nombre"],
 		$evento["Apellido"],
-		$evento["FechadeNac"],
+		$evento["FechadeNacimiento"],
 		$evento["Sexo"],
 		$evento["Direccion"],
 		$evento["Telefono"],
@@ -26,12 +26,12 @@ $stmt->bind_param(
 		);
 		$stmt->execute();
 		echo 
-		$evento["IdUsuario"].
+		$evento["idUsuario"].
 		$evento["Email"].
 		$evento["Contrasena"].
 		$evento["Nombre"].
 		$evento["Apellido"].
-		$evento["FechadeNac"].
+		$evento["FechadeNacimiento"].
 		$evento["Sexo"].
 		$evento["Direccion"].
 		$evento["Telefono"].
