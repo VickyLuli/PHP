@@ -6,6 +6,7 @@ if (mysqli_connect_errno()) {
     exit();
 }		
 $string = file_get_contents('php://input');
+var_dump($string);
 $evento=json_decode($string,true);
 var_dump($evento);
 $query = "INSERT INTO Usuario (IdUsuario, Email, Contrasena, Nombre, Apellido, FechaNac, Sexo, Direccion, Telefono, DNI) VALUES (null, ?, ?, ?, ?,?,?,?,?,?)";
