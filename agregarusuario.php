@@ -15,6 +15,7 @@ $stmt->bind_param(
 		'iissi',
 		$evento["idUsuario"],
 		$evento["Email"],
+		var_dump($evento["Email"]);
 		$evento["Contrasena"],
 		$evento["Nombre"],
 		$evento["Apellido"],
