@@ -15,7 +15,7 @@ $stmt->bind_param(
 		'iissi',
 		$evento["idUsuario"],
 		$evento["Email"],
-		var_dump($evento["Email"]);
+
 		$evento["Contrasena"],
 		$evento["Nombre"],
 		$evento["Apellido"],
@@ -37,6 +37,7 @@ $stmt->bind_param(
 		$evento["Direccion"].
 		$evento["Telefono"].
 		$evento["DNI"];
+		var_dump($evento["Email"]);
 		//$stmt->bind_result($con, $query);
 
 mysqli_close($con);
