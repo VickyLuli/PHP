@@ -11,7 +11,6 @@ $evento=json_decode($string,true);
 var_dump($evento);
 $query = "INSERT INTO Usuario (Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
-echo $query;
 $stmt->bind_param(
 		'sssssii',
 		$evento["Email"],
@@ -35,6 +34,7 @@ $stmt->bind_param(
 		$evento["Direccion"].
 		$evento["Telefono"].
 		$evento["DNI"];
+var_dump($evento["Email"]);
 		//$stmt->bind_result($con, $query);
 
 mysqli_close($con);
