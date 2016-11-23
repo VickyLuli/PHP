@@ -11,6 +11,7 @@ $evento=json_decode($string,true);
 var_dump($evento);
 $query = "INSERT INTO Usuario (Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
+echo $query;
 $stmt->bind_param(
 		'iissi',
 		$evento["Email"],
