@@ -9,7 +9,7 @@ $string = file_get_contents('php://input');
 var_dump($string);
 $evento=json_decode($string,true);
 var_dump($evento);
-$query = "INSERT INTO Usuario (idUsuario, Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?, ?,?,?,?,?,?)";
+$query = "INSERT INTO Usuario (Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
 		'iissi',
@@ -37,7 +37,6 @@ $stmt->bind_param(
 		$evento["Direccion"].
 		$evento["Telefono"].
 		$evento["DNI"];
-		var_dump($evento["Email"]);
 		//$stmt->bind_result($con, $query);
 
 mysqli_close($con);
