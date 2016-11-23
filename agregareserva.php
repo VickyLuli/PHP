@@ -7,10 +7,10 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
-$query = "INSERT INTO reserva (null, nombre, email, DNI, entrada, fecha, trago, total) VALUES (null, ?, ?, ?, ?,?,?,?)";
+$query = "INSERT INTO reserva ( nombre, email, DNI, entrada, fecha, trago, total) VALUES ( ?, ?, ?, ?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
-		'iissi',
+		'sssssss',
 		$evento["nombre"],
 		$evento["email"],
 		$evento["DNI"],
