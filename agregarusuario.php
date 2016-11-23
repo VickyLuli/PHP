@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
 $query = "INSERT INTO Usuario (Email, Contrasena, Nombre, Apellido, FechadeNacimiento, Sexo, Direccion, Telefono, DNI) VALUES (?, ?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
-		'sssssii',
+		'sssssss',
 		$evento["Email"],
 		$evento["Contrasena"],
 		$evento["Nombre"],
