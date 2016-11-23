@@ -13,9 +13,7 @@ $query = "INSERT INTO Usuario (Email, Contrasena, Nombre, Apellido, FechadeNacim
 $stmt=$con->prepare($query);
 $stmt->bind_param(
 		'iissi',
-		$evento["idUsuario"],
 		$evento["Email"],
-
 		$evento["Contrasena"],
 		$evento["Nombre"],
 		$evento["Apellido"],
@@ -27,7 +25,6 @@ $stmt->bind_param(
 		);
 		$stmt->execute();
 		echo 
-		$evento["idUsuario"].
 		$evento["Email"].
 		$evento["Contrasena"].
 		$evento["Nombre"].
