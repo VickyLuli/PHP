@@ -7,15 +7,16 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
-$query = "INSERT INTO compra (Nombre, Email, DNI, Entrada, Fecha, Total, Titular, Tarjeta, Pago) VALUES (?, ?, ?, ?,?,?,?,?,?)";
+$query = "INSERT INTO compra (Nombre, Email, DNI, Entrada, Fecha,Trago, Total, Titular, Tarjeta, Pago) VALUES (?, ?,?, ?, ?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
-		'sssssssss',
+		'ssssssssss',
 		$evento["Nombre"],
 		$evento["Email"],
 		$evento["DNI"],
 		$evento["Entrada"],
 		$evento["Fecha"],
+		$evento["Trago"],
 		$evento["Total"],
 		$evento["Titular"],
 		$evento["Tarjeta"],
@@ -28,6 +29,7 @@ $stmt->bind_param(
 		$evento["DNI"].
 		$evento["Entrada"].
 		$evento["Fecha"].
+		$evento["Trago"].
 		$evento["Total"].
 		$evento["Titular"].
 		$evento["Tarjeta"].
