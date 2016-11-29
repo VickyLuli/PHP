@@ -5,7 +5,7 @@ if (mysqli_connect_errno()) {
     printf("Error de conexión: %s\n", mysqli_connect_error());
     exit();
 }		
-$string = file_get_contents("php://input");
+$string = "{'Nombre':'aaa','Trago':'Sin trago','Email':'aqaaaa','Total':'100','Fecha':'30\/11\/2016'}";
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
