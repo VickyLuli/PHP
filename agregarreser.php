@@ -20,15 +20,5 @@ $stmt->bind_param(
 		$evento["Total"]
 		);
 		$stmt->execute();
-		echo 
-		$evento["Nombre"].
-		$evento["Email"].
-		$evento["DNI"].
-		$evento["Entrada"].
-		$evento["Fecha"].
-		$evento["Trago"].
-		$evento["Total"];
-		//$stmt->bind_result($con, $query);
-
 mysqli_close($con);
 ?>
