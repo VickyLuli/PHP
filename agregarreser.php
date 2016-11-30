@@ -10,7 +10,7 @@ $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre) VALUES (?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param('s',$reserva);
-$reserva = 'NombreReserva';
+$reserva = "NombreReserva";
 $stmt->execute();
 $stmt->close();
 
