@@ -9,10 +9,17 @@ $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
-$stmt->bind_param('sssssss','cebp','cebo2','cebo3','cebo4','cebo5','cebo6','cebo7');
-echo $stmt
-    
-//$stmt->execute();
+$stmt->bind_param(
+		'sssssss',
+		$evento["Nombre"],
+		$evento["Email"],
+		$evento["DNI"],
+		$evento["Entrada"],
+		$evento["Fecha"],
+		$evento["Trago"],
+		$evento["Total"]
+		);
+$stmt->execute();
 
 mysqli_close($con);
 ?>
