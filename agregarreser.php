@@ -10,7 +10,9 @@ $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param('sssssss','cebp','cebo2','cebo3','cebo4','cebo5','cebo6','cebo7');
-$stmt->execute();
+echo $stmt
+    
+//$stmt->execute();
 
 mysqli_close($con);
 ?>
