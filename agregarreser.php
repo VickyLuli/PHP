@@ -6,9 +6,7 @@ if (mysqli_connect_errno()) {
     exit();
 }		
 $string = file_get_contents("php://input");
-echo $string;
 $evento=json_decode($string,true);
-echo $evento;
 $query = "INSERT INTO noctidb.reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
