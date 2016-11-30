@@ -6,17 +6,17 @@ if (mysqli_connect_errno()) {
     exit();
 }		
 
-
-
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre) VALUES (?)";
+echo $evento;
+/*
 $stmt=$con->prepare($query);
 $stmt->bind_param('s',$reserva);
 $reserva = "NombreReserva";
 $stmt->execute();
 $stmt->close();
-
+*/
 mysqli_close($con);
 
 
