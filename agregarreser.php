@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre) VALUES (?)";
-echo $string;
+echo $evento["Nombre"];
 /*
 $stmt=$con->prepare($query);
 $stmt->bind_param('s',$reserva);
