@@ -5,9 +5,14 @@ if (mysqli_connect_errno()) {
     printf("Error de conexión: %s\n", mysqli_connect_error());
     exit();
 }		
+
+
+
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre) VALUES (?)";
+echo $query; 
+/*
 $stmt=$con->prepare($query);
 $stmt->bind_param('s',$reserva);
 $reserva = "NombreReserva";
@@ -15,4 +20,7 @@ $stmt->execute();
 $stmt->close();
 
 mysqli_close($con);
+
+*/
+
 ?>
