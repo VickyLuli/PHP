@@ -9,11 +9,10 @@ $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
 $query = "INSERT INTO reserva (Nombre) VALUES (?)";
 $stmt=$con->prepare($query);
-$stmt->bind_param(
-		's',
-		'Reserva1'
-		);
+$stmt->bind_param('s',$reserva);
+$reserva = 'NombreReserva';
 $stmt->execute();
+$stmt->close();
 
 mysqli_close($con);
 ?>
