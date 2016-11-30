@@ -7,17 +7,17 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents("php://input");
 $evento=json_decode($string,true);
-$query = "INSERT INTO noctidb.reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
+$query = "INSERT INTO reserva (Nombre, Email, DNI, Entrada, Fecha, Trago, Total) VALUES (?,?,?,?,?,?,?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
 		'sssssss',
-		$evento["Nombre"],
-		$evento["Email"],
-		$evento["DNI"],
-		$evento["Entrada"],
-		$evento["Fecha"],
-		$evento["Trago"],
-		$evento["Total"]
+		'cebp',
+		'cebo2',
+		'cebo3',
+		'cebo4',
+		'cebo5',
+		'cebo6',
+		'cebo7'
 		);
 		$stmt->execute();
 mysqli_close($con);
