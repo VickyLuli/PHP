@@ -27,7 +27,7 @@ $stmt->bind_param(
 		$evento["Entrada"].
 		$evento["Fecha"].
 		$evento["Trago"].
-		$evento["Total"].
+		$evento["Total"];
 		//$stmt->bind_result($con, $query);
 
 mysqli_close($con);
